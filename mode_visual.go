@@ -7,12 +7,14 @@ import (
 	"time"
 )
 
-func doVisualMode(budget int) {
+func doVisualMode(budget int, faction1, faction2 string) {
 	console_wrapper.Init_console()
 	defer console_wrapper.Close_console()
 	rnd := fibrandom.FibRandom{}
 	rnd.InitDefault()
-	b := battler.InitBattlefield(rnd, 20, 10, "BLUES", "REDS", gatherArmy(budget, 10), gatherArmy(budget, 10))
+	army1 := gatherArmy(budget, 10, faction1)
+	army2 :=  gatherArmy(budget, 10, faction2)
+	b := battler.InitBattlefield(rnd, 20, 10, faction1, faction2, army1, army2)
 	for tick := 0; tick < 1000; tick++ {
 		renderBattlefield(b)
 		time.Sleep(25 * time.Millisecond)

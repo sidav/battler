@@ -3,9 +3,10 @@ package main
 import (
 	"battler/battler"
 	"battler/fibrandom"
+	"strings"
 )
 
-func gatherArmy(budget, maxClass int) map[string]int {
+func gatherArmy(budget, maxClass int, faction string) map[string]int {
 	rnd := fibrandom.FibRandom{}
 	rnd.InitDefault()
 	currClasses := map[int]int {
@@ -17,7 +18,7 @@ func gatherArmy(budget, maxClass int) map[string]int {
 	selectCycles := 0
 	for budget > 0 && selectCycles < 10000 {
 		selectCycles++
-		affordablesList := getListOfUnitCodesCheaperThan(budget)
+		affordablesList := getListOfUnitCodesCheaperThan(budget, faction)
 		if len(affordablesList) == 0 {
 			break
 		}
@@ -37,10 +38,10 @@ func gatherArmy(budget, maxClass int) map[string]int {
 	return army
 }
 
-func getListOfUnitCodesCheaperThan(value int) []string {
+func getListOfUnitCodesCheaperThan(value int, faction string) []string {
 	var list []string
 	for k, v := range battler.UNITS_DATA {
-		if v.Cost <= value {
+		if v.Cost <= value && (faction == "" || v.Factions == "" || strings.Contains(v.Factions, faction)) {
 			list = append(list, k)
 		}
 	}

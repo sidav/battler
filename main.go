@@ -1,6 +1,7 @@
 package main
 
 import (
+	"battler/battler"
 	"fmt"
 	"os"
 	"strconv"
@@ -27,13 +28,19 @@ func main() {
 	//	"TRIKE": 4,
 	//	"JUGGERNAUT": 1,
 	//}
-	budget, _ := strconv.Atoi(args[1])
-	cycles, _ := strconv.Atoi(args[2])
+	battler.InitUnitsData()
 	if args[0] == "-v" {
-		doVisualMode(budget)
+		budget, _ := strconv.Atoi(args[1])
+		faction1 := args[2]
+		faction2 := args[3]
+		doVisualMode(budget, faction1, faction2)
 	}
 	if args[0] == "-s" {
-		doStatistic(budget, cycles)
+		budget, _ := strconv.Atoi(args[1])
+		cycles := 100
+		faction1 := args[2]
+		faction2 := args[3]
+		doStatistic(budget, cycles, faction1, faction2)
 	}
 }
 

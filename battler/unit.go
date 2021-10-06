@@ -9,7 +9,7 @@ type Unit struct {
 	RemainingSquadSize int
 }
 
-func createUnit(x, y int, code string, team *Team) *Unit {
+func CreateUnit(x, y int, code string, team *Team) *Unit {
 	return &Unit{
 		X:             x,
 		Y:             y,
@@ -21,7 +21,7 @@ func createUnit(x, y int, code string, team *Team) *Unit {
 	}
 }
 
-func (u *Unit) receiveDamage(damage int) {
+func (u *Unit) ReceiveDamage(damage int) {
 	u.hitpoints -= damage
 	if u.hitpoints <= 0 && u.Data.NumInSquad > 1 {
 		for u.RemainingSquadSize > 0 && u.hitpoints <= 0 {

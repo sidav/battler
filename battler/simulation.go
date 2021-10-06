@@ -34,12 +34,12 @@ func (b *Battlefield) ActForUnit(u *Unit) {
 }
 
 func (b *Battlefield) tryAttackClosest(u *Unit) bool {
-	target := b.getClosestUnitInFrontOf(u, u.Data.weapon.attackRange, false, true)
+	target := b.getClosestUnitInFrontOf(u, u.Data.Weapon.attackRange, false, true)
 	if target == nil {
 		return false
 	}
-	u.NextTickToAct = b.CurrentTick + u.Data.weapon.attackCooldown
-	target.receiveDamage(u.rollDamageOnArmor(&target.Data.armor))
+	u.NextTickToAct = b.CurrentTick + u.Data.Weapon.attackCooldown
+	target.ReceiveDamage(u.RollDamageOnArmor(&target.Data.Armor))
 	return true
 }
 
