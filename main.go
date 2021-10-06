@@ -31,15 +31,27 @@ func main() {
 	battler.InitUnitsData()
 	if args[0] == "-v" {
 		budget, _ := strconv.Atoi(args[1])
-		faction1 := args[2]
-		faction2 := args[3]
+		faction1 := ""
+		if len(args) > 2 {
+			faction1 = args[2]
+		}
+		faction2 := ""
+		if len(args) > 2 {
+			faction2 = args[3]
+		}
 		doVisualMode(budget, faction1, faction2)
 	}
 	if args[0] == "-s" {
 		budget, _ := strconv.Atoi(args[1])
 		cycles := 100
-		faction1 := args[2]
-		faction2 := args[3]
+		faction1 := ""
+		if len(args) > 2 {
+			faction1 = args[2]
+		}
+		faction2 := ""
+		if len(args) > 2 {
+			faction2 = args[3]
+		}
 		doStatistic(budget, cycles, faction1, faction2)
 	}
 }
