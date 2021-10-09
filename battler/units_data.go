@@ -4,7 +4,8 @@ const (
 	CLASS_ASSAULT = iota
 	CLASS_LONGRANGE
 	CLASS_SUPPORT
-
+)
+const (
 	KINETIC = iota
 	ENERGY
 	EXPLOSION

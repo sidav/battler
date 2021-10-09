@@ -8,9 +8,15 @@ import (
 )
 
 const (
-	BATTLEFIELD_WIDTH = 30
+	BATTLEFIELD_WIDTH = 25
 	BATTLEFIELD_HEIGHT = 10
-	SIMULATION_LENGTH = 1000
+
+	SIMULATION_TOTAL_TICKS_VISUAL    = 10000
+	SIMULATION_TOTAL_TICKS_STATISTIC = 1000
+	SIMULATION_TOTAL_TICKS_BALANCE  = 1000
+	SIMULATION_CYCLES_BALANCE = 100
+
+	TICK_LENGTH_MS = 10
 )
 
 func main() {
@@ -50,6 +56,18 @@ func main() {
 	battler.InitUnitsData(1)
 	if args[0] == "-b" {
 		findMostBalancedBudget(faction1, faction2)
+	}
+	if args[0] == "-g" {
+		battler.InitUnitsData(5)
+		for k, _ := range battler.UNITS_DATA {
+			if battler.UNITS_DATA[k].Factions == "generated" {
+				ustrings := battler.CreateUnit(0, 0, k, &battler.Team{}).ExportStringStatsData()
+				for s := range ustrings {
+					fmt.Println(ustrings[s])
+				}
+				fmt.Println("---")
+			}
+		}
 	}
 	if args[0] == "-v" {
 		doVisualMode(budget, faction1, faction2)

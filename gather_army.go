@@ -7,6 +7,7 @@ import (
 )
 
 func gatherArmy(budget, maxClass int, faction string) map[string]int {
+	initialBudget := budget
 	rnd := fibrandom.FibRandom{}
 	rnd.InitDefault()
 	currClasses := map[int]int {
@@ -35,6 +36,7 @@ func gatherArmy(budget, maxClass int, faction string) map[string]int {
 		currClasses[class]++
 		budget -= battler.UNITS_DATA[code].Cost
 		if battler.UNITS_DATA[code].Cost == -1 {
+			budget -= initialBudget / len(affordablesList) - 1
 			budget = 0
 		}
 	}

@@ -170,7 +170,7 @@ var elites_units = map[string]*UnitData{
 			attackRating:   10,
 			attackType:     ENERGY,
 			attackRange:    15,
-			attackCooldown: 50,
+			attackCooldown: 110,
 		},
 		Armor: armor{
 			values: map[int]int{
@@ -191,7 +191,7 @@ var elites_units = map[string]*UnitData{
 			attackRating:   7,
 			attackType:     KINETIC,
 			attackRange:    12,
-			attackCooldown: 40,
+			attackCooldown: 80,
 		},
 		Armor: armor{
 			values: map[int]int{
@@ -228,6 +228,28 @@ var arm_units = map[string]*UnitData{
 		},
 		movementCooldown: 10,
 	},
+	"SAMSON": {
+		Cost:          35,
+		DisplayedChar: 's',
+		Class:         CLASS_ASSAULT,
+		Factions:      "arm",
+		maxHitpoints:  5,
+		NumInSquad:    1,
+		Weapon: weapon{
+			attackRating:   4,
+			attackType:     EXPLOSION,
+			attackRange:    3,
+			attackCooldown: 15,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   4,
+				ENERGY:    4,
+				EXPLOSION: 4,
+			},
+		},
+		movementCooldown: 10,
+	},
 	"ZEUS": {
 		Cost:          25,
 		DisplayedChar: 'Z',
@@ -249,9 +271,9 @@ var arm_units = map[string]*UnitData{
 		},
 		movementCooldown: 20,
 	},
-	"COMMANDER": {
+	"REAPER": {
 		Cost:          250,
-		DisplayedChar: '@',
+		DisplayedChar: 'R',
 		Class:         CLASS_ASSAULT,
 		Factions:      "arm",
 		maxHitpoints:  25,
@@ -303,7 +325,28 @@ var arm_units = map[string]*UnitData{
 			attackRating:   25,
 			attackType:     ENERGY,
 			attackRange:    20,
-			attackCooldown: 150,
+			attackCooldown: 120,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   1,
+				ENERGY:    1,
+				EXPLOSION: 1,
+			},
+		},
+		movementCooldown: 100,
+	},
+	"THE D-GUN": {
+		Cost:          1000,
+		DisplayedChar: 'D',
+		Class:         CLASS_LONGRANGE,
+		Factions:      "arm",
+		maxHitpoints:  1,
+		Weapon: weapon{
+			attackRating:   500,
+			attackType:     ENERGY,
+			attackRange:    15,
+			attackCooldown: 75,
 		},
 		Armor: armor{
 			values: map[int]int{

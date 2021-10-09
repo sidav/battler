@@ -7,25 +7,24 @@ import (
 )
 
 func findMostBalancedBudget(faction1, faction2 string) {
-	const cycles = 100
 	currBudget := 10000
 	//a1wins, a2wins := 0, 0
 	stepSize := currBudget
-	bestA1WinsValue, bestBudget := cycles, 0
+	bestA1WinsValue, bestBudget := SIMULATION_CYCLES_BALANCE, 0
 	for stepSize > 50 {
 		rnd := &fibrandom.FibRandom{}
 		rnd.InitDefault()
 		fmt.Printf("Testing %d budget... ", currBudget)
 		thisBudgetA1Wins := 0
-		for cycle := 0; cycle < cycles; cycle++ {
+		for cycle := 0; cycle < SIMULATION_CYCLES_BALANCE; cycle++ {
 			army1won, _, _ := doStatisticSimulation(rnd, currBudget, faction1, faction2)
 			if army1won {
 				thisBudgetA1Wins++
 			}
 		}
-		fmt.Printf("%d wins (%.1f%%)\n", thisBudgetA1Wins, calc50BalancePercent(thisBudgetA1Wins, cycles))
+		fmt.Printf("%d wins (%.1f%%)\n", thisBudgetA1Wins, calc50BalancePercent(thisBudgetA1Wins, SIMULATION_CYCLES_BALANCE))
 		stepSize = currBudget/2
-		if abs(cycles/2 - thisBudgetA1Wins) <= abs(cycles/2 - bestA1WinsValue) {
+		if abs(SIMULATION_CYCLES_BALANCE/2 - thisBudgetA1Wins) <= abs(SIMULATION_CYCLES_BALANCE/2 - bestA1WinsValue) {
 			bestA1WinsValue = thisBudgetA1Wins
 			bestBudget = currBudget
 			currBudget = currBudget/2
@@ -33,8 +32,8 @@ func findMostBalancedBudget(faction1, faction2 string) {
 			currBudget = currBudget/2 + currBudget/4
 		}
 	}
-	fmt.Printf("Best budget is %d (%d-%d wins, %.1f%%)\n", bestBudget, bestA1WinsValue, cycles-bestA1WinsValue,
-		calc50BalancePercent(bestA1WinsValue, cycles))
+	fmt.Printf("Best budget is %d (%d-%d wins, %.1f%%)\n", bestBudget, bestA1WinsValue, SIMULATION_CYCLES_BALANCE-bestA1WinsValue,
+		calc50BalancePercent(bestA1WinsValue, SIMULATION_CYCLES_BALANCE))
 }
 
 func doStatistic(budget, cycles int, faction1, faction2 string) {
@@ -71,10 +70,10 @@ func doStatistic(budget, cycles int, faction1, faction2 string) {
 
 func doStatisticSimulation(rnd *fibrandom.FibRandom, budget int, faction1, faction2 string) (bool, int, int) {
 	army1won := false
-	army1 := gatherArmy(budget, 10, faction1)
-	army2 :=  gatherArmy(budget, 10, faction2)
+	army1 := gatherArmy(budget, BATTLEFIELD_HEIGHT, faction1)
+	army2 :=  gatherArmy(budget, BATTLEFIELD_HEIGHT, faction2)
 	b := battler.InitBattlefield(*rnd, BATTLEFIELD_WIDTH, BATTLEFIELD_HEIGHT, "BLUES", "REDS", army1, army2)
-	for tick := 0; tick < 1000; tick++ {
+	for tick := 0; tick < SIMULATION_TOTAL_TICKS_STATISTIC; tick++ {
 		b.SimulateTick()
 	}
 	if b.LeftTeam.CurrentTotalCost > b.RightTeam.CurrentTotalCost {
