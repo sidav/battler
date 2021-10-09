@@ -6,7 +6,7 @@ type Unit struct {
 	X, Y               int
 	hitpoints          int
 	NextTickToAct      int
-	Data               UnitData
+	Data               *UnitData
 	Team               *Team
 	RemainingSquadSize int
 }

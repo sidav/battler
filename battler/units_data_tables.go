@@ -1,12 +1,12 @@
 package battler
 
-var other_units = map[string]UnitData {
+var other_units = map[string]*UnitData{
 	// Assault
 	"TANK": {
 		Cost:          10,
 		DisplayedChar: 'T',
 		Class:         CLASS_ASSAULT,
-		Factions: "elites,guerillas",
+		Factions:      "elites,guerillas",
 		maxHitpoints:  10,
 		Weapon: weapon{
 			attackRating:   3,
@@ -27,7 +27,7 @@ var other_units = map[string]UnitData {
 		Cost:          1000,
 		DisplayedChar: '&',
 		Class:         CLASS_ASSAULT,
-		Factions: "chuck",
+		Factions:      "chuck",
 		maxHitpoints:  1,
 		Weapon: weapon{
 			attackRating:   100,
@@ -49,7 +49,7 @@ var other_units = map[string]UnitData {
 		Cost:          10,
 		DisplayedChar: 'a',
 		Class:         CLASS_SUPPORT,
-		Factions: "elites,guerillas",
+		Factions:      "elites,guerillas",
 		maxHitpoints:  5,
 		Weapon: weapon{
 			attackRating:   5,
@@ -70,7 +70,7 @@ var other_units = map[string]UnitData {
 	// long-range
 }
 
-var elites_units = map[string]UnitData {
+var elites_units = map[string]*UnitData{
 	// Assault
 	"ELITE_COMMANDOS": {
 		Cost:          25,
@@ -137,16 +137,17 @@ var elites_units = map[string]UnitData {
 		movementCooldown: 25,
 	},
 	// Support
-	"LASER": {
+	"SHOCK": {
 		Cost:          35,
-		DisplayedChar: 'L',
+		DisplayedChar: 's',
 		Class:         CLASS_SUPPORT,
 		Factions:      "elites",
-		maxHitpoints:  3,
+		maxHitpoints:  2,
+		NumInSquad:    3,
 		Weapon: weapon{
-			attackRating:   6,
+			attackRating:   2,
 			attackType:     ENERGY,
-			attackRange:    5,
+			attackRange:    4,
 			attackCooldown: 35,
 		},
 		Armor: armor{
@@ -161,7 +162,7 @@ var elites_units = map[string]UnitData {
 	// long-range
 	"RAILGUN": {
 		Cost:          35,
-		DisplayedChar: 'r',
+		DisplayedChar: 'R',
 		Class:         CLASS_LONGRANGE,
 		Factions:      "elites",
 		maxHitpoints:  5,
@@ -180,9 +181,142 @@ var elites_units = map[string]UnitData {
 		},
 		movementCooldown: 30,
 	},
+	"GAUSS": {
+		Cost:          35,
+		DisplayedChar: 'G',
+		Class:         CLASS_LONGRANGE,
+		Factions:      "elites",
+		maxHitpoints:  3,
+		Weapon: weapon{
+			attackRating:   7,
+			attackType:     KINETIC,
+			attackRange:    12,
+			attackCooldown: 40,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   1,
+				ENERGY:    1,
+				EXPLOSION: 1,
+			},
+		},
+		movementCooldown: 50,
+	},
 }
 
-var guerillas_units = map[string]UnitData {
+var arm_units = map[string]*UnitData{
+	// Assault
+	"PEEWEE": {
+		Cost:          25,
+		DisplayedChar: 'p',
+		Class:         CLASS_ASSAULT,
+		Factions:      "arm",
+		maxHitpoints:  7,
+		NumInSquad:    1,
+		Weapon: weapon{
+			attackRating:   3,
+			attackType:     KINETIC,
+			attackRange:    1,
+			attackCooldown: 5,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   4,
+				ENERGY:    4,
+				EXPLOSION: 4,
+			},
+		},
+		movementCooldown: 10,
+	},
+	"ZEUS": {
+		Cost:          25,
+		DisplayedChar: 'Z',
+		Class:         CLASS_ASSAULT,
+		Factions:      "arm",
+		maxHitpoints:  10,
+		Weapon: weapon{
+			attackRating:   7,
+			attackType:     KINETIC,
+			attackRange:    1,
+			attackCooldown: 25,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   7,
+				ENERGY:    6,
+				EXPLOSION: 7,
+			},
+		},
+		movementCooldown: 20,
+	},
+	"COMMANDER": {
+		Cost:          250,
+		DisplayedChar: '@',
+		Class:         CLASS_ASSAULT,
+		Factions:      "arm",
+		maxHitpoints:  25,
+		Weapon: weapon{
+			attackRating:   100,
+			attackType:     ENERGY,
+			attackRange:    1,
+			attackCooldown: 50,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   9,
+				ENERGY:    9,
+				EXPLOSION: 9,
+			},
+		},
+		movementCooldown: 25,
+	},
+	// Support
+	"FIDO": {
+		Cost:          50,
+		DisplayedChar: 'F',
+		Class:         CLASS_SUPPORT,
+		Factions:      "arm",
+		maxHitpoints:  4,
+		Weapon: weapon{
+			attackRating:   6,
+			attackType:     ENERGY,
+			attackRange:    5,
+			attackCooldown: 35,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   4,
+				ENERGY:    4,
+				EXPLOSION: 4,
+			},
+		},
+		movementCooldown: 45,
+	},
+	// long-range
+	"ANNIHILATOR": {
+		Cost:          350,
+		DisplayedChar: 'A',
+		Class:         CLASS_LONGRANGE,
+		Factions:      "arm",
+		maxHitpoints:  5,
+		Weapon: weapon{
+			attackRating:   25,
+			attackType:     ENERGY,
+			attackRange:    20,
+			attackCooldown: 150,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   1,
+				ENERGY:    1,
+				EXPLOSION: 1,
+			},
+		},
+		movementCooldown: 100,
+	},
+}
+
+var guerillas_units = map[string]*UnitData{
 	// Assault
 	"INFANTRY": {
 		Cost:          9,
@@ -207,10 +341,10 @@ var guerillas_units = map[string]UnitData {
 		movementCooldown: 10,
 	},
 	"DEVASTATOR": {
-		Cost:          50,
+		Cost:          75,
 		DisplayedChar: 'D',
 		Class:         CLASS_ASSAULT,
-		Factions: "guerillas",
+		Factions:      "guerillas",
 		maxHitpoints:  25,
 		Weapon: weapon{
 			attackRating:   9,
@@ -249,9 +383,30 @@ var guerillas_units = map[string]UnitData {
 		},
 		movementCooldown: 30,
 	},
+	"LASER": {
+		Cost:          45,
+		DisplayedChar: 'L',
+		Class:         CLASS_SUPPORT,
+		Factions:      "guerillas",
+		maxHitpoints:  7,
+		Weapon: weapon{
+			attackRating:   6,
+			attackType:     ENERGY,
+			attackRange:    4,
+			attackCooldown: 25,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   2,
+				ENERGY:    2,
+				EXPLOSION: 1,
+			},
+		},
+		movementCooldown: 30,
+	},
 	// long-range
 	"MISSILE": {
-		Cost:          25,
+		Cost:          45,
 		DisplayedChar: 'M',
 		Class:         CLASS_LONGRANGE,
 		Factions:      "guerillas",
@@ -271,9 +426,30 @@ var guerillas_units = map[string]UnitData {
 		},
 		movementCooldown: 30,
 	},
+	"SCUD": {
+		Cost:          75,
+		DisplayedChar: 'S',
+		Class:         CLASS_LONGRANGE,
+		Factions:      "guerillas",
+		maxHitpoints:  3,
+		Weapon: weapon{
+			attackRating:   16,
+			attackType:     EXPLOSION,
+			attackRange:    5,
+			attackCooldown: 50,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   1,
+				ENERGY:    1,
+				EXPLOSION: 1,
+			},
+		},
+		movementCooldown: 30,
+	},
 }
 
-var zerg_units = map[string]UnitData {
+var zerg_units = map[string]*UnitData{
 	// Assault
 	"ZERGLING": {
 		Cost:          1,
@@ -388,4 +564,3 @@ var zerg_units = map[string]UnitData {
 		movementCooldown: 25,
 	},
 }
-

@@ -28,14 +28,18 @@ func renderField(b *battler.Battlefield) {
 
 func renderUnits(b *battler.Battlefield) {
 	color := console_wrapper.WHITE
+	renderStats := true
 	for _, u := range b.UnitsMap {
 		if u.Team == b.LeftTeam {
 			color = console_wrapper.DARK_BLUE
 		} else {
 			color = console_wrapper.DARK_RED
-			stats := u.ExportStringStatsData()
-			for y, s := range stats {
-				putStringOnRight(s, y)
+			if renderStats {
+				stats := u.ExportStringStatsData()
+				for y, s := range stats {
+					putStringOnRight(s, y)
+				}
+				renderStats = false 
 			}
 		}
 		if u.NextTickToAct <= b.CurrentTick && false {

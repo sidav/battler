@@ -8,22 +8,40 @@ import (
 func InitUnitsData(generatedUnitsNumber int) {
 	rnd = fibrandom.FibRandom{}
 	rnd.InitDefault()
-	UNITS_DATA = make(map[string]UnitData, 0)
+	UNITS_DATA = make(map[string]*UnitData, 0)
 	for k, v := range other_units {
 		UNITS_DATA[k] = v
+		if UNITS_DATA[k].Name == "" {
+			UNITS_DATA[k].Name = k
+		}
 	}
 	for k, v := range guerillas_units {
 		UNITS_DATA[k] = v
+		if UNITS_DATA[k].Name == "" {
+			UNITS_DATA[k].Name = k
+		}
 	}
 	for k, v := range elites_units {
 		UNITS_DATA[k] = v
+		if UNITS_DATA[k].Name == "" {
+			UNITS_DATA[k].Name = k
+		}
 	}
 	for k, v := range zerg_units {
 		UNITS_DATA[k] = v
+		if UNITS_DATA[k].Name == "" {
+			UNITS_DATA[k].Name = k
+		}
+	}
+	for k, v := range arm_units {
+		UNITS_DATA[k] = v
+		if UNITS_DATA[k].Name == "" {
+			UNITS_DATA[k].Name = k
+		}
 	}
 	for i := 0; i < generatedUnitsNumber; i++ {
 		key := fmt.Sprintf("Forgotten%d", i+1)
-		UNITS_DATA[key] = *GenerateRandomUnitData()
+		UNITS_DATA[key] = GenerateRandomUnitData()
 	}
 }
 

@@ -23,4 +23,4 @@ type UnitData struct {
 	movementCooldown int
 }
 
-var UNITS_DATA map[string]UnitData
+var UNITS_DATA map[string]*UnitData
