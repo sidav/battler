@@ -73,7 +73,7 @@ func doStatisticSimulation(rnd *fibrandom.FibRandom, budget int, faction1, facti
 	army1won := false
 	army1 := gatherArmy(budget, 10, faction1)
 	army2 :=  gatherArmy(budget, 10, faction2)
-	b := battler.InitBattlefield(*rnd, 20, 10, "BLUES", "REDS", army1, army2)
+	b := battler.InitBattlefield(*rnd, BATTLEFIELD_WIDTH, BATTLEFIELD_HEIGHT, "BLUES", "REDS", army1, army2)
 	for tick := 0; tick < 1000; tick++ {
 		b.SimulateTick()
 	}

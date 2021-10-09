@@ -44,6 +44,9 @@ func (b *Battlefield) tryAttackClosest(u *Unit) bool {
 }
 
 func (b *Battlefield) tryMoveUnitForward(u *Unit) bool {
+	if len(b.GetUnitsOfAnotherClassInFrontOf(u, 1, true, false)) != 0 {
+		return false
+	}
 	if len(b.GetAllUnitsInFrontOf(u, 1, false, true)) == 0 {
 		var direction int
 		if u.Team == b.LeftTeam {

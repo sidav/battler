@@ -14,7 +14,7 @@ func doVisualMode(budget int, faction1, faction2 string) {
 	rnd.InitDefault()
 	army1 := gatherArmy(budget, 10, faction1)
 	army2 :=  gatherArmy(budget, 10, faction2)
-	b := battler.InitBattlefield(rnd, 20, 10, faction1, faction2, army1, army2)
+	b := battler.InitBattlefield(rnd, BATTLEFIELD_WIDTH, BATTLEFIELD_HEIGHT, faction1, faction2, army1, army2)
 	for tick := 0; tick < 1000; tick++ {
 		renderBattlefield(b)
 		time.Sleep(25 * time.Millisecond)

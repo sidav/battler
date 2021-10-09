@@ -340,6 +340,27 @@ var guerillas_units = map[string]*UnitData{
 		},
 		movementCooldown: 10,
 	},
+	"SABOTEUR": {
+		Cost:          100,
+		DisplayedChar: 's',
+		Class:         CLASS_ASSAULT,
+		Factions:      "guerillas",
+		maxHitpoints:  5,
+		Weapon: weapon{
+			attackRating:   25,
+			attackType:     EXPLOSION,
+			attackRange:    1,
+			attackCooldown: 20,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   9,
+				ENERGY:    9,
+				EXPLOSION: 9,
+			},
+		},
+		movementCooldown: 1,
+	},
 	"DEVASTATOR": {
 		Cost:          75,
 		DisplayedChar: 'D',

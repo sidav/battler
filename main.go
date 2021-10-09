@@ -7,6 +7,12 @@ import (
 	"strconv"
 )
 
+const (
+	BATTLEFIELD_WIDTH = 30
+	BATTLEFIELD_HEIGHT = 10
+	SIMULATION_LENGTH = 1000
+)
+
 func main() {
 	args := os.Args[1:]
 

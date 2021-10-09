@@ -39,7 +39,7 @@ func renderUnits(b *battler.Battlefield) {
 				for y, s := range stats {
 					putStringOnRight(s, y)
 				}
-				renderStats = false 
+				renderStats = false
 			}
 		}
 		if u.NextTickToAct <= b.CurrentTick && false {
