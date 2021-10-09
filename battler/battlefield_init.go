@@ -1,8 +1,13 @@
 package battler
 
-import "battler/fibrandom"
+import (
+	"battler/fibrandom"
+	"fmt"
+)
 
-func InitUnitsData() {
+func InitUnitsData(generatedUnitsNumber int) {
+	rnd = fibrandom.FibRandom{}
+	rnd.InitDefault()
 	UNITS_DATA = make(map[string]UnitData, 0)
 	for k, v := range other_units {
 		UNITS_DATA[k] = v
@@ -15,6 +20,10 @@ func InitUnitsData() {
 	}
 	for k, v := range zerg_units {
 		UNITS_DATA[k] = v
+	}
+	for i := 0; i < generatedUnitsNumber; i++ {
+		key := fmt.Sprintf("Forgotten%d", i+1)
+		UNITS_DATA[key] = *GenerateRandomUnitData()
 	}
 }
 

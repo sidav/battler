@@ -34,6 +34,9 @@ func gatherArmy(budget, maxClass int, faction string) map[string]int {
 		}
 		currClasses[class]++
 		budget -= battler.UNITS_DATA[code].Cost
+		if battler.UNITS_DATA[code].Cost == -1 {
+			budget = 0
+		}
 	}
 	return army
 }

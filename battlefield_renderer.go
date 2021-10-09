@@ -33,8 +33,12 @@ func renderUnits(b *battler.Battlefield) {
 			color = console_wrapper.DARK_BLUE
 		} else {
 			color = console_wrapper.DARK_RED
+			stats := u.ExportStringStatsData()
+			for y, s := range stats {
+				putStringOnRight(s, y)
+			}
 		}
-		if u.NextTickToAct <= b.CurrentTick {
+		if u.NextTickToAct <= b.CurrentTick && false {
 			console_wrapper.SetColor(console_wrapper.BLACK, color)
 		} else {
 			console_wrapper.SetColor(color, console_wrapper.BLACK)

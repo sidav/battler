@@ -10,11 +10,11 @@ import (
 func main() {
 	args := os.Args[1:]
 
-	if len(args) == 0 {
+	if len(args) <= 1 {
 		fmt.Printf(
 			"Arguments: \n" +
-				" -v <budget> \n" +
-				" -s <budget> <tries> \n")
+				" -v <faction1> <faction2> <budget> \n" +
+				" -s <faction1> <faction2> <budget> <tries> \n")
 		return
 	}
 
@@ -28,30 +28,28 @@ func main() {
 	//	"TRIKE": 4,
 	//	"JUGGERNAUT": 1,
 	//}
-	battler.InitUnitsData()
+	faction1 := ""
+	if len(args) > 2 {
+		faction1 = args[1]
+	}
+	faction2 := ""
+	if len(args) > 2 {
+		faction2 = args[2]
+	}
+	budget := 500
+	if len(args) > 3 {
+		budget, _ = strconv.Atoi(args[3])
+	}
+
+	battler.InitUnitsData(1)
+	if args[0] == "-b" {
+		findMostBalancedBudget(faction1, faction2)
+	}
 	if args[0] == "-v" {
-		budget, _ := strconv.Atoi(args[1])
-		faction1 := ""
-		if len(args) > 2 {
-			faction1 = args[2]
-		}
-		faction2 := ""
-		if len(args) > 2 {
-			faction2 = args[3]
-		}
 		doVisualMode(budget, faction1, faction2)
 	}
 	if args[0] == "-s" {
-		budget, _ := strconv.Atoi(args[1])
 		cycles := 100
-		faction1 := ""
-		if len(args) > 2 {
-			faction1 = args[2]
-		}
-		faction2 := ""
-		if len(args) > 2 {
-			faction2 = args[3]
-		}
 		doStatistic(budget, cycles, faction1, faction2)
 	}
 }

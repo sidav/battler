@@ -1,5 +1,7 @@
 package battler
 
+import "fmt"
+
 type Unit struct {
 	X, Y               int
 	hitpoints          int
@@ -32,4 +34,14 @@ func (u *Unit) ReceiveDamage(damage int) {
 			u.hitpoints = 0
 		}
 	}
+}
+
+func (u *Unit) ExportStringStatsData() []string {
+	str := make([]string, 0)
+	str = append(str, fmt.Sprintf("%s, %d/%d hp", u.Data.Name, u.hitpoints, u.Data.maxHitpoints))
+	str = append(str, fmt.Sprintf("Weapon: A%d R%d CD%d type %d",
+		u.Data.Weapon.attackRating, u.Data.Weapon.attackRange, u.Data.Weapon.attackCooldown, u.Data.Weapon.attackType))
+	str = append(str, fmt.Sprintf("Armor %v", u.Data.Armor.values))
+	str = append(str, fmt.Sprintf("Movement %d", u.Data.movementCooldown))
+	return str
 }

@@ -23,27 +23,6 @@ var other_units = map[string]UnitData {
 		},
 		movementCooldown: 20,
 	},
-	"JUGGERNAUT": {
-		Cost:          50,
-		DisplayedChar: 'J',
-		Class:         CLASS_ASSAULT,
-		Factions: "elites,guerillas",
-		maxHitpoints:  100,
-		Weapon: weapon{
-			attackRating:   5,
-			attackType:     KINETIC,
-			attackRange:    1,
-			attackCooldown: 20,
-		},
-		Armor: armor{
-			values: map[int]int{
-				KINETIC:   2,
-				ENERGY:    2,
-				EXPLOSION: 2,
-			},
-		},
-		movementCooldown: 25,
-	},
 	"CHUCKNORRIS": {
 		Cost:          1000,
 		DisplayedChar: '&',
@@ -136,7 +115,7 @@ var elites_units = map[string]UnitData {
 		},
 		movementCooldown: 20,
 	},
-	"INDESTRUCTIBLE": {
+	"ATTACK_ROBOT": {
 		Cost:          150,
 		DisplayedChar: '@',
 		Class:         CLASS_ASSAULT,
@@ -157,6 +136,28 @@ var elites_units = map[string]UnitData {
 		},
 		movementCooldown: 25,
 	},
+	// Support
+	"LASER": {
+		Cost:          35,
+		DisplayedChar: 'L',
+		Class:         CLASS_SUPPORT,
+		Factions:      "elites",
+		maxHitpoints:  3,
+		Weapon: weapon{
+			attackRating:   6,
+			attackType:     ENERGY,
+			attackRange:    5,
+			attackCooldown: 35,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   2,
+				ENERGY:    2,
+				EXPLOSION: 2,
+			},
+		},
+		movementCooldown: 30,
+	},
 	// long-range
 	"RAILGUN": {
 		Cost:          35,
@@ -168,7 +169,7 @@ var elites_units = map[string]UnitData {
 			attackRating:   10,
 			attackType:     ENERGY,
 			attackRange:    15,
-			attackCooldown: 40,
+			attackCooldown: 50,
 		},
 		Armor: armor{
 			values: map[int]int{
@@ -200,15 +201,57 @@ var guerillas_units = map[string]UnitData {
 			values: map[int]int{
 				KINETIC:   1,
 				ENERGY:    1,
-				EXPLOSION: 1,
+				EXPLOSION: 0,
 			},
 		},
 		movementCooldown: 10,
 	},
+	"DEVASTATOR": {
+		Cost:          50,
+		DisplayedChar: 'D',
+		Class:         CLASS_ASSAULT,
+		Factions: "guerillas",
+		maxHitpoints:  25,
+		Weapon: weapon{
+			attackRating:   9,
+			attackType:     KINETIC,
+			attackRange:    1,
+			attackCooldown: 20,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   7,
+				ENERGY:    5,
+				EXPLOSION: 3,
+			},
+		},
+		movementCooldown: 35,
+	},
 	// Support
+	"SCORCHER": {
+		Cost:          35,
+		DisplayedChar: 'S',
+		Class:         CLASS_SUPPORT,
+		Factions:      "guerillas",
+		maxHitpoints:  4,
+		Weapon: weapon{
+			attackRating:   6,
+			attackType:     EXPLOSION,
+			attackRange:    4,
+			attackCooldown: 25,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   2,
+				ENERGY:    2,
+				EXPLOSION: 1,
+			},
+		},
+		movementCooldown: 30,
+	},
 	// long-range
 	"MISSILE": {
-		Cost:          15,
+		Cost:          25,
 		DisplayedChar: 'M',
 		Class:         CLASS_LONGRANGE,
 		Factions:      "guerillas",
@@ -238,21 +281,21 @@ var zerg_units = map[string]UnitData {
 		Class:         CLASS_ASSAULT,
 		Factions:      "zerg",
 		maxHitpoints:  1,
-		NumInSquad:    4,
+		NumInSquad:    9,
 		Weapon: weapon{
 			attackRating:   1,
 			attackType:     KINETIC,
 			attackRange:    1,
-			attackCooldown: 20,
+			attackCooldown: 5,
 		},
 		Armor: armor{
 			values: map[int]int{
-				KINETIC:   1,
-				ENERGY:    1,
+				KINETIC:   2,
+				ENERGY:    2,
 				EXPLOSION: 1,
 			},
 		},
-		movementCooldown: 7,
+		movementCooldown: 4,
 	},
 	"ROACH": {
 		Cost:          8,
@@ -262,7 +305,7 @@ var zerg_units = map[string]UnitData {
 		maxHitpoints:  3,
 		NumInSquad:    1,
 		Weapon: weapon{
-			attackRating:   2,
+			attackRating:   3,
 			attackType:     EXPLOSION,
 			attackRange:    1,
 			attackCooldown: 20,
@@ -271,7 +314,29 @@ var zerg_units = map[string]UnitData {
 			values: map[int]int{
 				KINETIC:   3,
 				ENERGY:    2,
-				EXPLOSION: 1,
+				EXPLOSION: 4,
+			},
+		},
+		movementCooldown: 15,
+	},
+	"ULTRALISK": {
+		Cost:          100,
+		DisplayedChar: 'U',
+		Class:         CLASS_ASSAULT,
+		Factions:      "zerg",
+		maxHitpoints:  25,
+		NumInSquad:    0,
+		Weapon: weapon{
+			attackRating:   6,
+			attackType:     KINETIC,
+			attackRange:    1,
+			attackCooldown: 10,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   7,
+				ENERGY:    7,
+				EXPLOSION: 7,
 			},
 		},
 		movementCooldown: 15,
@@ -282,7 +347,7 @@ var zerg_units = map[string]UnitData {
 		DisplayedChar: 'h',
 		Class:         CLASS_SUPPORT,
 		Factions:      "zerg",
-		maxHitpoints:  2,
+		maxHitpoints:  3,
 		NumInSquad:    0,
 		Weapon: weapon{
 			attackRating:   3,
@@ -300,5 +365,27 @@ var zerg_units = map[string]UnitData {
 		movementCooldown: 25,
 	},
 	// long-range
+	"RAVAGER": {
+		Cost:          15,
+		DisplayedChar: 'G',
+		Class:         CLASS_LONGRANGE,
+		Factions:      "zerg",
+		maxHitpoints:  3,
+		NumInSquad:    0,
+		Weapon: weapon{
+			attackRating:   2,
+			attackType:     KINETIC,
+			attackRange:    5,
+			attackCooldown: 15,
+		},
+		Armor: armor{
+			values: map[int]int{
+				KINETIC:   3,
+				ENERGY:    3,
+				EXPLOSION: 3,
+			},
+		},
+		movementCooldown: 25,
+	},
 }
 
