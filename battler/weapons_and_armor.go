@@ -3,35 +3,40 @@ package battler
 type weapon struct {
 	attackRating                int
 	attackType                  int
+	percentToHit                int
 	attackRange, attackCooldown int
 }
 
 type armor struct {
-	values map[int]int
+	values         map[int]int
+	percentToBlock int
 }
 
-func (u *Unit) RollDamageOnArmor(armor *armor) int {
-	w := u.Data.Weapon
-	if armor.values[w.attackType] >= 10 {
-		return 0
+func (w *weapon) rollDamage() int {
+	toHit := 30
+	if w.percentToHit > 0 {
+		toHit = w.percentToHit
 	}
 	damage := 0
-	if u.Data.NumInSquad > 1 {
-		for currInSquad := 0; currInSquad < u.RemainingSquadSize; currInSquad++ {
-			for i := 0; i < w.attackRating; i++ {
-				dice := rnd.RandInRange(1, 10)
-				if dice > armor.values[w.attackType] {
-					damage++
-				}
-			}
-		}
-	} else {
-		for i := 0; i < w.attackRating; i++ {
-			dice := rnd.RandInRange(1, 10)
-			if dice > armor.values[w.attackType] {
-				damage++
-			}
+	for i := 0; i < w.attackRating; i++ {
+		dice := rnd.RandInRange(1, 100)
+		if dice <= toHit {
+			damage++
 		}
 	}
 	return damage
+}
+
+func (a *armor) rollArmor(damageType int) int {
+	toBlock := 30
+	if a.percentToBlock > 0 {
+		toBlock = a.percentToBlock
+	}
+	blocks := 0
+	for i := 0; i < a.values[damageType]; i++ {
+		if rnd.RandInRange(1, 100) <= toBlock {
+			blocks++
+		}
+	}
+	return blocks
 }

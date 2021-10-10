@@ -73,7 +73,7 @@ var other_units = map[string]*UnitData{
 var elites_units = map[string]*UnitData{
 	// Assault
 	"ELITE_COMMANDOS": {
-		Cost:          25,
+		Cost:          12,
 		DisplayedChar: 'e',
 		Class:         CLASS_ASSAULT,
 		Factions:      "elites",
@@ -81,6 +81,7 @@ var elites_units = map[string]*UnitData{
 		NumInSquad:    4,
 		Weapon: weapon{
 			attackRating:   2,
+			percentToHit:   50,
 			attackType:     KINETIC,
 			attackRange:    1,
 			attackCooldown: 20,
@@ -107,10 +108,11 @@ var elites_units = map[string]*UnitData{
 			attackCooldown: 25,
 		},
 		Armor: armor{
+			percentToBlock: 70,
 			values: map[int]int{
-				KINETIC:   5,
-				ENERGY:    3,
-				EXPLOSION: 4,
+				KINETIC:   7,
+				ENERGY:    7,
+				EXPLOSION: 7,
 			},
 		},
 		movementCooldown: 20,
@@ -168,6 +170,7 @@ var elites_units = map[string]*UnitData{
 		maxHitpoints:  5,
 		Weapon: weapon{
 			attackRating:   10,
+			percentToHit:   50,
 			attackType:     ENERGY,
 			attackRange:    15,
 			attackCooldown: 110,
@@ -189,6 +192,7 @@ var elites_units = map[string]*UnitData{
 		maxHitpoints:  3,
 		Weapon: weapon{
 			attackRating:   7,
+			percentToHit:   80,
 			attackType:     KINETIC,
 			attackRange:    12,
 			attackCooldown: 80,
@@ -258,6 +262,7 @@ var arm_units = map[string]*UnitData{
 		maxHitpoints:  10,
 		Weapon: weapon{
 			attackRating:   7,
+			percentToHit:   80,
 			attackType:     KINETIC,
 			attackRange:    1,
 			attackCooldown: 25,
@@ -362,14 +367,14 @@ var arm_units = map[string]*UnitData{
 var guerillas_units = map[string]*UnitData{
 	// Assault
 	"INFANTRY": {
-		Cost:          9,
+		Cost:          8,
 		DisplayedChar: 'i',
 		Class:         CLASS_ASSAULT,
 		Factions:      "guerillas",
 		maxHitpoints:  2,
 		NumInSquad:    6,
 		Weapon: weapon{
-			attackRating:   1,
+			attackRating:   3,
 			attackType:     KINETIC,
 			attackRange:    1,
 			attackCooldown: 20,
@@ -390,7 +395,8 @@ var guerillas_units = map[string]*UnitData{
 		Factions:      "guerillas",
 		maxHitpoints:  5,
 		Weapon: weapon{
-			attackRating:   25,
+			attackRating:   15,
+			percentToHit:   75,
 			attackType:     EXPLOSION,
 			attackRange:    1,
 			attackCooldown: 20,
@@ -417,6 +423,7 @@ var guerillas_units = map[string]*UnitData{
 			attackCooldown: 20,
 		},
 		Armor: armor{
+			percentToBlock: 75,
 			values: map[int]int{
 				KINETIC:   7,
 				ENERGY:    5,

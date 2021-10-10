@@ -33,13 +33,13 @@ func (b *Battlefield) ActForUnit(u *Unit) {
 	b.tryMoveUnitForward(u)
 }
 
-func (b *Battlefield) tryAttackClosest(u *Unit) bool {
-	target := b.getClosestUnitInFrontOf(u, u.Data.Weapon.attackRange, false, true)
+func (b *Battlefield) tryAttackClosest(attacker *Unit) bool {
+	target := b.getClosestUnitInFrontOf(attacker, attacker.Data.Weapon.attackRange, false, true)
 	if target == nil {
 		return false
 	}
-	u.NextTickToAct = b.CurrentTick + u.Data.Weapon.attackCooldown
-	target.ReceiveDamage(u.RollDamageOnArmor(&target.Data.Armor))
+	attacker.NextTickToAct = b.CurrentTick + attacker.Data.Weapon.attackCooldown
+	attacker.AttackTarget(target)
 	return true
 }
 
