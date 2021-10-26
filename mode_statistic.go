@@ -4,6 +4,7 @@ import (
 	"battler/battler"
 	"battler/fibrandom"
 	"fmt"
+	"time"
 )
 
 func findMostBalancedBudget(faction1, faction2 string) {
@@ -45,6 +46,7 @@ func doStatistic(budget, cycles int, faction1, faction2 string) {
 	army2wins := 0
 	army2moneylosses := 0
 
+	start := time.Now()
 	for cycle := 0; cycle < cycles; cycle++ {
 		army1won, a1losses, a2losses := doStatisticSimulation(rnd, budget, faction1, faction2)
 		if army1won {
@@ -56,6 +58,8 @@ func doStatistic(budget, cycles int, faction1, faction2 string) {
 		}
 
 	}
+	end := time.Since(start)
+	fmt.Printf("time: %v (mean per battle is %v) \n", end, end/time.Duration(cycles))
 	fmt.Printf("WINS: %s %d - %d %s\n", faction1, army1wins, army2wins, faction2)
 	a1LossesString := "n/a"
 	if army1wins != 0 {
