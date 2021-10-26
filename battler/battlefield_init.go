@@ -6,39 +6,18 @@ import (
 )
 
 func InitUnitsData(generatedUnitsNumber int) {
+	//marshalAndSaveUnitsData(other_units, "other")
+	//marshalAndSaveUnitsData(elites_units, "elites")
+	//marshalAndSaveUnitsData(guerillas_units, "guerillas")
+	//marshalAndSaveUnitsData(arm_units, "arm")
+	//marshalAndSaveUnitsData(zerg_units, "zerg")
+
 	rnd = fibrandom.FibRandom{}
 	rnd.InitDefault()
 	UNITS_DATA = make(map[string]*UnitData, 0)
-	for k, v := range other_units {
-		UNITS_DATA[k] = v
-		if UNITS_DATA[k].Name == "" {
-			UNITS_DATA[k].Name = k
-		}
-	}
-	for k, v := range guerillas_units {
-		UNITS_DATA[k] = v
-		if UNITS_DATA[k].Name == "" {
-			UNITS_DATA[k].Name = k
-		}
-	}
-	for k, v := range elites_units {
-		UNITS_DATA[k] = v
-		if UNITS_DATA[k].Name == "" {
-			UNITS_DATA[k].Name = k
-		}
-	}
-	for k, v := range zerg_units {
-		UNITS_DATA[k] = v
-		if UNITS_DATA[k].Name == "" {
-			UNITS_DATA[k].Name = k
-		}
-	}
-	for k, v := range arm_units {
-		UNITS_DATA[k] = v
-		if UNITS_DATA[k].Name == "" {
-			UNITS_DATA[k].Name = k
-		}
-	}
+
+	unmarshalAllUnitsData()
+
 	for i := 0; i < generatedUnitsNumber; i++ {
 		key := fmt.Sprintf("Forgotten%d", i+1)
 		UNITS_DATA[key] = GenerateRandomUnitData()
@@ -65,15 +44,17 @@ func InitBattlefield(random fibrandom.FibRandom, sizex, sizey int, leftTeamName,
 			xcoord := 0
 			row := 0
 			switch UNITS_DATA[code].Class {
-			case CLASS_ASSAULT:
+			case "ASSAULT":
 				xcoord = 2
 				row = 2
-			case CLASS_SUPPORT:
+			case "SUPPORT":
 				xcoord = 1
 				row = 1
-			case CLASS_LONGRANGE:
+			case "LONGRANGE":
 				xcoord = 0
 				row = 0
+			default:
+				panic("Wtf is the class " + UNITS_DATA[code].Class)
 			}
 			unitsInRows[row]++
 			ycoord := b.Sizey/2 - unitsInRows[row]/2
@@ -91,13 +72,13 @@ func InitBattlefield(random fibrandom.FibRandom, sizex, sizey int, leftTeamName,
 			xcoord := 0
 			row := 0
 			switch UNITS_DATA[code].Class {
-			case CLASS_ASSAULT:
+			case "ASSAULT":
 				xcoord = sizex - 3
 				row = 2
-			case CLASS_SUPPORT:
+			case "SUPPORT":
 				xcoord = sizex - 2
 				row = 1
-			case CLASS_LONGRANGE:
+			case "LONGRANGE":
 				xcoord = sizex - 1
 				row = 0
 			}

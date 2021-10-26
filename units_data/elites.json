@@ -1,0 +1,152 @@
+{
+	"ATTACK_ROBOT": {
+		"DisplayedChar": "@",
+		"Cost": 150,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "elites",
+		"Weapon": {
+			"AttackRating": 3,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 9,
+				"EXPLOSION": 9,
+				"KINETIC": 9
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 10,
+		"NumInSquad": 0,
+		"MovementCooldown": 25
+	},
+	"ELITE_COMMANDOS": {
+		"DisplayedChar": "e",
+		"Cost": 12,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "elites",
+		"Weapon": {
+			"AttackRating": 2,
+			"AttackType": "KINETIC",
+			"PercentToHit": 50,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 5,
+				"EXPLOSION": 4,
+				"KINETIC": 5
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 2,
+		"NumInSquad": 4,
+		"MovementCooldown": 10
+	},
+	"GAUSS": {
+		"DisplayedChar": "G",
+		"Cost": 35,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "elites",
+		"Weapon": {
+			"AttackRating": 7,
+			"AttackType": "KINETIC",
+			"PercentToHit": 80,
+			"AttackRange": 12,
+			"AttackCooldown": 80
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 3,
+		"NumInSquad": 0,
+		"MovementCooldown": 50
+	},
+	"RAILGUN": {
+		"DisplayedChar": "R",
+		"Cost": 35,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "elites",
+		"Weapon": {
+			"AttackRating": 10,
+			"AttackType": "ENERGY",
+			"PercentToHit": 50,
+			"AttackRange": 15,
+			"AttackCooldown": 110
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 5,
+		"NumInSquad": 0,
+		"MovementCooldown": 30
+	},
+	"SHOCK": {
+		"DisplayedChar": "s",
+		"Cost": 35,
+		"Name": "",
+		"Class": "SUPPORT",
+		"Factions": "elites",
+		"Weapon": {
+			"AttackRating": 2,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 4,
+			"AttackCooldown": 35
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 2,
+				"EXPLOSION": 2,
+				"KINETIC": 2
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 2,
+		"NumInSquad": 3,
+		"MovementCooldown": 30
+	},
+	"TANK_HEAVY": {
+		"DisplayedChar": "H",
+		"Cost": 25,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "elites",
+		"Weapon": {
+			"AttackRating": 4,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 7,
+				"EXPLOSION": 7,
+				"KINETIC": 7
+			},
+			"PercentToBlock": 70
+		},
+		"MaxHitpoints": 15,
+		"NumInSquad": 0,
+		"MovementCooldown": 20
+	}
+}

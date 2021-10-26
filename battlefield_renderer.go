@@ -49,9 +49,9 @@ func renderUnits(b *battler.Battlefield) {
 		}
 		charToRender := u.Data.DisplayedChar
 		if u.Data.NumInSquad > 1 {
-			charToRender = rune(strconv.Itoa(u.RemainingSquadSize)[0])
+			charToRender = strconv.Itoa(u.RemainingSquadSize)
 		}
-		console_wrapper.PutChar(charToRender, u.X, u.Y)
+		console_wrapper.PutString(charToRender, u.X, u.Y)
 	}
 	console_wrapper.SetBgColor(console_wrapper.BLACK)
 }

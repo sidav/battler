@@ -15,7 +15,7 @@ func CreateUnit(x, y int, code string, team *Team) *Unit {
 	return &Unit{
 		X:                  x,
 		Y:                  y,
-		hitpoints:          UNITS_DATA[code].maxHitpoints,
+		hitpoints:          UNITS_DATA[code].MaxHitpoints,
 		RemainingSquadSize: UNITS_DATA[code].NumInSquad,
 		NextTickToAct:      0,
 		Data:               UNITS_DATA[code],
@@ -36,10 +36,10 @@ func (attacker *Unit) AttackTarget(target *Unit) {
 	} else {
 		damage = attacker.Data.Weapon.rollDamage()
 	}
-	target.ReceiveDamage(damage, attacker.Data.Weapon.attackType)
+	target.ReceiveDamage(damage, attacker.Data.Weapon.AttackType)
 }
 
-func (u *Unit) ReceiveDamage(damage, damageType int) {
+func (u *Unit) ReceiveDamage(damage int, damageType string) {
 	if u.isSquad() {
 		for damage > 0 && u.RemainingSquadSize > 0 {
 			blockedDamage := u.Data.Armor.rollArmor(damageType)
@@ -56,7 +56,7 @@ func (u *Unit) ReceiveDamage(damage, damageType int) {
 			if u.hitpoints <= 0 {
 				u.RemainingSquadSize--
 				if u.RemainingSquadSize > 0 {
-					u.hitpoints = u.Data.maxHitpoints
+					u.hitpoints = u.Data.MaxHitpoints
 				}
 			}
 		}
@@ -71,11 +71,11 @@ func (u *Unit) ReceiveDamage(damage, damageType int) {
 
 func (u *Unit) ExportStringStatsData() []string {
 	str := make([]string, 0)
-	str = append(str, fmt.Sprintf("%s, %d/%d hp", u.Data.Name, u.hitpoints, u.Data.maxHitpoints))
-	str = append(str, fmt.Sprintf("Weapon: AR %d toHit %d%% RNG %d CD %d Type %d",
-		u.Data.Weapon.attackRating, u.Data.Weapon.percentToHit, u.Data.Weapon.attackRange,
-		u.Data.Weapon.attackCooldown, u.Data.Weapon.attackType))
-	str = append(str, fmt.Sprintf("Armor %v toBlock %d%%", u.Data.Armor.values, u.Data.Armor.percentToBlock))
-	str = append(str, fmt.Sprintf("Movement %d", u.Data.movementCooldown))
+	str = append(str, fmt.Sprintf("%s, %d/%d hp", u.Data.Name, u.hitpoints, u.Data.MaxHitpoints))
+	str = append(str, fmt.Sprintf("Weapon: %s AR %d toHit %d%% RNG %d CD %d",
+		u.Data.Weapon.AttackType, u.Data.Weapon.AttackRating, u.Data.Weapon.PercentToHit, u.Data.Weapon.AttackRange,
+		u.Data.Weapon.AttackCooldown))
+	str = append(str, fmt.Sprintf("Armor %v toBlock %d%%", u.Data.Armor.Values, u.Data.Armor.PercentToBlock))
+	str = append(str, fmt.Sprintf("Movement %d", u.Data.MovementCooldown))
 	return str
 }

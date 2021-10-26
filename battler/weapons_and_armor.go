@@ -1,24 +1,24 @@
 package battler
 
-type weapon struct {
-	attackRating                int
-	attackType                  int
-	percentToHit                int
-	attackRange, attackCooldown int
+type Weapon struct {
+	AttackRating                int
+	AttackType                  string
+	PercentToHit                int
+	AttackRange, AttackCooldown int
 }
 
-type armor struct {
-	values         map[int]int
-	percentToBlock int
+type Armor struct {
+	Values         map[string]int
+	PercentToBlock int
 }
 
-func (w *weapon) rollDamage() int {
+func (w *Weapon) rollDamage() int {
 	toHit := 30
-	if w.percentToHit > 0 {
-		toHit = w.percentToHit
+	if w.PercentToHit > 0 {
+		toHit = w.PercentToHit
 	}
 	damage := 0
-	for i := 0; i < w.attackRating; i++ {
+	for i := 0; i < w.AttackRating; i++ {
 		dice := rnd.RandInRange(1, 100)
 		if dice <= toHit {
 			damage++
@@ -27,13 +27,13 @@ func (w *weapon) rollDamage() int {
 	return damage
 }
 
-func (a *armor) rollArmor(damageType int) int {
+func (a *Armor) rollArmor(damageType string) int {
 	toBlock := 30
-	if a.percentToBlock > 0 {
-		toBlock = a.percentToBlock
+	if a.PercentToBlock > 0 {
+		toBlock = a.PercentToBlock
 	}
 	blocks := 0
-	for i := 0; i < a.values[damageType]; i++ {
+	for i := 0; i < a.Values[damageType]; i++ {
 		if rnd.RandInRange(1, 100) <= toBlock {
 			blocks++
 		}

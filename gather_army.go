@@ -10,10 +10,10 @@ func gatherArmy(budget, maxClass int, faction string) map[string]int {
 	initialBudget := budget
 	rnd := fibrandom.FibRandom{}
 	rnd.InitDefault()
-	currClasses := map[int]int {
-		battler.CLASS_ASSAULT: 0,
-		battler.CLASS_LONGRANGE: 0,
-		battler.CLASS_SUPPORT: 0,
+	currClasses := map[string]int {
+		"ASSAULT": 0,
+		"SUPPORT": 0,
+		"LONGRANGE": 0,
 	}
 	var army = make(map[string]int, 0)
 	selectCycles := 0

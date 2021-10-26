@@ -5,29 +5,29 @@ import "strings"
 func GenerateRandomUnitData() *UnitData {
 	chars := []rune{'!', '@', '#', '$', '%', '&', '*', '+'}
 	return &UnitData{
-		DisplayedChar: chars[rnd.Rand(len(chars))],
+		DisplayedChar: string(chars[rnd.Rand(len(chars))]),
 		Cost:          -1, // rnd.Rand(200) * 10,
 		Name:          generateRandomTitle() + generateRandomName(),
-		Class:         CLASS_ASSAULT,
+		Class:         "LONGRANGE",
 		Factions:      "generated",
-		Weapon: weapon{
-			attackRating:   rnd.RandInRange(5, 15),
-			percentToHit:   rnd.RandInRange(1, 10) * 10,
-			attackType:     rnd.RandInRange(0, 2),
-			attackRange:    rnd.RandInRange(1, 20),
-			attackCooldown: rnd.RandInRange(1, 10) * 5,
+		Weapon: Weapon{
+			AttackRating:   rnd.RandInRange(5, 15),
+			PercentToHit:   rnd.RandInRange(1, 10) * 10,
+			AttackType:     []string{"KINETIC", "ENERGY", "EXPLOSION"}[rnd.RandInRange(0, 2)],
+			AttackRange:    rnd.RandInRange(1, 20),
+			AttackCooldown: rnd.RandInRange(1, 10) * 5,
 		},
-		Armor: armor{
-			percentToBlock: rnd.RandInRange(1, 9) * 10,
-			values: map[int]int{
+		Armor: Armor{
+			PercentToBlock: rnd.RandInRange(1, 9) * 10,
+			Values: map[string]int{
 				KINETIC:   rnd.RandInRange(1, 20),
 				ENERGY:    rnd.RandInRange(1, 20),
 				EXPLOSION: rnd.RandInRange(1, 20),
 			},
 		},
-		maxHitpoints:     rnd.RandInRange(1, 100) * 10,
+		MaxHitpoints:     rnd.RandInRange(1, 100) * 10,
 		NumInSquad:       0,
-		movementCooldown: rnd.RandInRange(1, 20) * 5,
+		MovementCooldown: rnd.RandInRange(1, 20) * 5,
 	}
 }
 

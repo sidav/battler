@@ -1,0 +1,127 @@
+{
+	"HYDRALISK": {
+		"DisplayedChar": "h",
+		"Cost": 10,
+		"Name": "",
+		"Class": "SUPPORT",
+		"Factions": "zerg",
+		"Weapon": {
+			"AttackRating": 3,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 2,
+				"EXPLOSION": 3,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 3,
+		"NumInSquad": 0,
+		"MovementCooldown": 25
+	},
+	"RAVAGER": {
+		"DisplayedChar": "G",
+		"Cost": 15,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "zerg",
+		"Weapon": {
+			"AttackRating": 2,
+			"AttackType": "ACID",
+			"PercentToHit": 30,
+			"AttackRange": 5,
+			"AttackCooldown": 15
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 3,
+				"EXPLOSION": 3,
+				"KINETIC": 3
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 3,
+		"NumInSquad": 0,
+		"MovementCooldown": 25
+	},
+	"ROACH": {
+		"DisplayedChar": "r",
+		"Cost": 8,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "zerg",
+		"Weapon": {
+			"AttackRating": 3,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 2,
+				"EXPLOSION": 7,
+				"KINETIC": 3
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 3,
+		"NumInSquad": 1,
+		"MovementCooldown": 15
+	},
+	"ULTRALISK": {
+		"DisplayedChar": "U",
+		"Cost": 100,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "zerg",
+		"Weapon": {
+			"AttackRating": 6,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 10
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 7,
+				"EXPLOSION": 7,
+				"KINETIC": 7
+			},
+			 "PercentToBlock": 55
+		},
+		"MaxHitpoints": 25,
+		"NumInSquad": 0,
+		"MovementCooldown": 15
+	},
+	"ZERGLING": {
+		"DisplayedChar": "z",
+		"Cost": 1,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "zerg",
+		"Weapon": {
+			"AttackRating": 1,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 5
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 2,
+				"EXPLOSION": 1,
+				"KINETIC": 2
+			},
+			 "PercentToBlock": 60
+		},
+		"MaxHitpoints": 1,
+		"NumInSquad": 9,
+		"MovementCooldown": 4
+	}
+}

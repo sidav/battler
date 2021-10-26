@@ -1,0 +1,177 @@
+{
+	"DEVASTATOR": {
+		"DisplayedChar": "D",
+		"Cost": 75,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 9,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 5,
+				"EXPLOSION": 3,
+				"KINETIC": 7
+			},
+			"PercentToBlock": 75
+		},
+		"MaxHitpoints": 25,
+		"NumInSquad": 0,
+		"MovementCooldown": 35
+	},
+	"INFANTRY": {
+		"DisplayedChar": "i",
+		"Cost": 8,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 3,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 0,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 2,
+		"NumInSquad": 6,
+		"MovementCooldown": 10
+	},
+	"LASER": {
+		"DisplayedChar": "L",
+		"Cost": 45,
+		"Name": "",
+		"Class": "SUPPORT",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 6,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 4,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 2,
+				"EXPLOSION": 1,
+				"KINETIC": 2
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 7,
+		"NumInSquad": 0,
+		"MovementCooldown": 30
+	},
+	"MISSILE": {
+		"DisplayedChar": "M",
+		"Cost": 45,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 10,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 30,
+			"AttackRange": 8,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 5,
+		"NumInSquad": 0,
+		"MovementCooldown": 30
+	},
+	"SABOTEUR": {
+		"DisplayedChar": "s",
+		"Cost": 100,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 15,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 75,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 9,
+				"EXPLOSION": 9,
+				"KINETIC": 9
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 5,
+		"NumInSquad": 0,
+		"MovementCooldown": 1
+	},
+	"SCORCHER": {
+		"DisplayedChar": "S",
+		"Cost": 35,
+		"Name": "",
+		"Class": "SUPPORT",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 6,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 30,
+			"AttackRange": 4,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 2,
+				"EXPLOSION": 1,
+				"KINETIC": 2
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 4,
+		"NumInSquad": 0,
+		"MovementCooldown": 30
+	},
+	"SCUD": {
+		"DisplayedChar": "S",
+		"Cost": 75,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "guerillas",
+		"Weapon": {
+			"AttackRating": 16,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 30,
+			"AttackRange": 5,
+			"AttackCooldown": 50
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 3,
+		"NumInSquad": 0,
+		"MovementCooldown": 30
+	}
+}

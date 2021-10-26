@@ -1,0 +1,77 @@
+{
+	"ARTY": {
+		"DisplayedChar": "a",
+		"Cost": 10,
+		"Name": "",
+		"Class": "SUPPORT",
+		"Factions": "elites,guerillas",
+		"Weapon": {
+			"AttackRating": 5,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 30,
+			"AttackRange": 5,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 5,
+		"NumInSquad": 0,
+		"MovementCooldown": 30
+	},
+	"CHUCKNORRIS": {
+		"DisplayedChar": "\u0026",
+		"Cost": 1000,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "chuck",
+		"Weapon": {
+			"AttackRating": 100,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 10,
+				"EXPLOSION": 10,
+				"KINETIC": 10
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 1,
+		"NumInSquad": 0,
+		"MovementCooldown": 25
+	},
+	"TANK": {
+		"DisplayedChar": "T",
+		"Cost": 10,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "elites,guerillas",
+		"Weapon": {
+			"AttackRating": 3,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 20
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 3,
+				"EXPLOSION": 3,
+				"KINETIC": 3
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 10,
+		"NumInSquad": 0,
+		"MovementCooldown": 20
+	}
+}

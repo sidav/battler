@@ -1,0 +1,177 @@
+{
+	"ANNIHILATOR": {
+		"DisplayedChar": "A",
+		"Cost": 350,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 25,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 20,
+			"AttackCooldown": 120
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 5,
+		"NumInSquad": 0,
+		"MovementCooldown": 100
+	},
+	"FIDO": {
+		"DisplayedChar": "F",
+		"Cost": 50,
+		"Name": "",
+		"Class": "SUPPORT",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 6,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 5,
+			"AttackCooldown": 35
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 4,
+				"EXPLOSION": 4,
+				"KINETIC": 4
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 4,
+		"NumInSquad": 0,
+		"MovementCooldown": 45
+	},
+	"PEEWEE": {
+		"DisplayedChar": "p",
+		"Cost": 25,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 3,
+			"AttackType": "KINETIC",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 5
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 4,
+				"EXPLOSION": 4,
+				"KINETIC": 4
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 7,
+		"NumInSquad": 1,
+		"MovementCooldown": 10
+	},
+	"REAPER": {
+		"DisplayedChar": "R",
+		"Cost": 250,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 100,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 1,
+			"AttackCooldown": 50
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 9,
+				"EXPLOSION": 9,
+				"KINETIC": 9
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 25,
+		"NumInSquad": 0,
+		"MovementCooldown": 25
+	},
+	"SAMSON": {
+		"DisplayedChar": "s",
+		"Cost": 35,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 4,
+			"AttackType": "EXPLOSION",
+			"PercentToHit": 30,
+			"AttackRange": 3,
+			"AttackCooldown": 15
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 4,
+				"EXPLOSION": 4,
+				"KINETIC": 4
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 5,
+		"NumInSquad": 1,
+		"MovementCooldown": 10
+	},
+	"THE D-GUN": {
+		"DisplayedChar": "D",
+		"Cost": 1000,
+		"Name": "",
+		"Class": "LONGRANGE",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 500,
+			"AttackType": "ENERGY",
+			"PercentToHit": 30,
+			"AttackRange": 15,
+			"AttackCooldown": 75
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 1,
+				"EXPLOSION": 1,
+				"KINETIC": 1
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 1,
+		"NumInSquad": 0,
+		"MovementCooldown": 100
+	},
+	"ZEUS": {
+		"DisplayedChar": "Z",
+		"Cost": 25,
+		"Name": "",
+		"Class": "ASSAULT",
+		"Factions": "arm",
+		"Weapon": {
+			"AttackRating": 7,
+			"AttackType": "KINETIC",
+			"PercentToHit": 80,
+			"AttackRange": 1,
+			"AttackCooldown": 25
+		},
+		"Armor": {
+			"Values": {
+				"ENERGY": 6,
+				"EXPLOSION": 7,
+				"KINETIC": 7
+			},
+			 "PercentToBlock": 30
+		},
+		"MaxHitpoints": 10,
+		"NumInSquad": 0,
+		"MovementCooldown": 20
+	}
+}
